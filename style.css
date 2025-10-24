@@ -1,0 +1,87 @@
+body {
+  background-color: #181818;
+  color: white;
+  padding: 40px;
+  margin-top: 10px;
+}
+
+h1{
+  text-align: center;
+  color: #2cccc3;
+}
+
+
+table, td, th {
+  background-color: #181818 !important;
+  color: white !important;
+  border-bottom: 1px solid #2cccc3;
+}
+
+th{
+  font-size: 23px;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.add-btn {
+  width: 80px;
+  background-color: #2cccc3 !important;
+  color: #181818;
+}
+
+.add-btn:hover {
+  width: 80px;
+  background-color: #1f938d !important;
+  color: #181818;
+}
+
+.edit-btn {
+  width: 80px;
+  background-color: #181818 !important;
+  border: 1px solid #facd3d !important;
+  color: #facd3d;
+}
+
+.edit-btn:hover {
+  width: 80px;
+  background-color: #facd3d !important;
+  color: #181818;
+}
+
+
+.delete-btn {
+  width: 80px;
+  background-color: #181818 !important;
+  border: 1px solid #e60576 !important;
+  color: #e60576;
+}
+
+.delete-btn:hover {
+  width: 80px;
+  background-color: #e60576 !important;
+  color: white;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center; /* центрируем по горизонтали */
+    gap: 10px;               /* расстояние между кнопками */
+    margin: 20px 0;
+}
+
+.page-btn {
+  color: white;
+  font-size: 30px;
+}
+
+.page-btn:hover {
+  color: #2cccc3;
+  font-size: 32px;
+}
+
+form {
+  background-color: #2cccc3 !important;
+}
