@@ -32,7 +32,7 @@ $total_result = $conn->query("SELECT COUNT(*) AS total FROM users");
 $total_row = $total_result->fetch_assoc();
 $total_users = $total_row['total'];
 $total_pages = ceil($total_users / $limit);
-
+$counter = ($page - 1) * $limit + 1; 
 ?>
 
 <!DOCTYPE html>
@@ -46,54 +46,59 @@ $total_pages = ceil($total_users / $limit);
 
 </head>
 <body class="p-3">
-
-<h1>Список пользователей</h1>
-<br>
-<div class="container">
-   <table class="table">
-      <thead>
-         <tr>
-            <th><a href="?sort=login&order=<?php echo $order === 'asc' ? 'desc' : 'asc' ?>&page=<?php echo $page; ?>">Логин</a></th>
-            <th><a href="?sort=name&order=<?php echo  $order === 'asc' ? 'desc' : 'asc' ?>&page=<?php echo $page; ?>">Имя</a></th>
-            <th><a href="?sort=surname&order=<?php echo  $order === 'asc' ? 'desc' : 'asc' ?>&page=<?php echo $page; ?>">Фамилия</a></th>
-            <th><a href="?sort=gender&order=<?php echo  $order === 'asc' ? 'desc' : 'asc' ?>&page=<?php echo $page; ?>">Пол</a></th>
-            <th><a href="?sort=birthdate&order=<?php echo  $order === 'asc' ? 'desc' : 'asc' ?>&page=<?php echo $page; ?>">Дата рождения</a></th>
-            <th></th>
-            <th><a href="add_user.php" class="btn btn-sm add-btn">Добавить</a></th>
-         </tr>
-      </thead>
-      <tbody>
-         <?php while ($row = $result->fetch_assoc()): ?>
+<div class="col-12"> 
+   <h1>Список пользователей</h1>
+   <br>
+   <div class="container">
+      <table class="table">
+         <thead>
             <tr>
-               <td><?php echo  htmlspecialchars($row['login']) ?></td>
-               <td><?php echo  htmlspecialchars($row['name']) ?></td>
-               <td><?php echo  htmlspecialchars($row['surname']) ?></td>
-               <td><?php echo  $row['gender'] ? 'Жен' : 'Муж' ?></td>
-               <td><?php echo  htmlspecialchars($row['birthdate']) ?></td>
-               <td>
-                  <a href="edit_user.php?id=<?php echo $row['ID'] ?>" class="btn btn-sm edit-btn" >Изменить</a>
-               </td>
-               <td>
-                  <form action="operations.php" method="POST" style="display:inline;">
-                     <input type="hidden" name="action" value="delete">
-                     <input type="hidden" name="id" value="<?php echo $row['ID'] ?>">
-                     <button type="submit" class="btn btn-sm delete-btn">Удалить</button>
-                  </form>
-               </td>
+               <th>#</th>
+               <th><a href="?sort=login&order=<?php echo $order === 'asc' ? 'desc' : 'asc' ?>&page=<?php echo $page; ?>">Логин</a></th>
+               <th><a href="?sort=name&order=<?php echo  $order === 'asc' ? 'desc' : 'asc' ?>&page=<?php echo $page; ?>">Имя</a></th>
+               <th><a href="?sort=surname&order=<?php echo  $order === 'asc' ? 'desc' : 'asc' ?>&page=<?php echo $page; ?>">Фамилия</a></th>
+               <th><a href="?sort=gender&order=<?php echo  $order === 'asc' ? 'desc' : 'asc' ?>&page=<?php echo $page; ?>">Пол</a></th>
+               <th><a href="?sort=birthdate&order=<?php echo  $order === 'asc' ? 'desc' : 'asc' ?>&page=<?php echo $page; ?>">Дата рождения</a></th>
+               <th></th>
+               <th><a href="add_user.php" class="btn btn-sm add-btn">Добавить</a></th>
             </tr>
-         <?php endwhile; ?>
-      </tbody>
-   </table>
-</div>
-<div class="pagination">
-   <a href="?page=<?php echo max($page-1,1) ?>&sort=<?php echo $sort ?>&order=<?php echo $order ?>" class="btn btn-sm page-btn">
-       <i class="bi bi-arrow-left"></i>
-   </a>
+         </thead>
+         <tbody>
+            <?php while ($row = $result->fetch_assoc()): ?>
+               <tr>
+                  <td><?php echo $counter ?></td>
+                  <td><?php echo  htmlspecialchars($row['login']) ?></td>
+                  <td><?php echo  htmlspecialchars($row['name']) ?></td>
+                  <td><?php echo  htmlspecialchars($row['surname']) ?></td>
+                  <td><?php echo  $row['gender'] ? 'Жен' : 'Муж' ?></td>
+                  <td><?php echo  htmlspecialchars($row['birthdate']) ?></td>
+                  <td>
+                     <a href="edit_user.php?id=<?php echo $row['ID'] ?>" class="btn btn-sm edit-btn" >Изменить</a>
+                  </td>
+                  <td>
+                     <form action="operations.php" method="POST" style="display:inline;">
+                        <input type="hidden" name="action" value="delete">
+                        <input type="hidden" name="id" value="<?php echo $row['ID'] ?>">
+                        <button type="submit" class="btn btn-sm delete-btn">Удалить</button>
+                     </form>
+                  </td>
+               </tr>
+            <?php $counter = $counter+1; ?>
+            <?php endwhile; ?>
+         </tbody>
+      </table>
+   </div>
+   <div class="pagination">
+      <a href="?page=<?php echo max($page-1,1) ?>&sort=<?php echo $sort ?>&order=<?php echo $order ?>" class="btn btn-sm page-btn">
+          <i class="bi bi-arrow-left"></i>
+      </a>
 
-   <a href="?page=<?php echo min($page+1,$total_pages) ?>&sort=<?php echo $sort ?>&order=<?php echo $order ?>" class="btn btn-sm page-btn">
-       <i class="bi bi-arrow-right"></i>
-   </a>
-</div>
+      <span class="current-page"><?php echo $page; ?></span>
 
+      <a href="?page=<?php echo min($page+1,$total_pages) ?>&sort=<?php echo $sort ?>&order=<?php echo $order ?>" class="btn btn-sm page-btn">
+          <i class="bi bi-arrow-right"></i>
+      </a>
+   </div>
+</div>
 </body>
 </html>

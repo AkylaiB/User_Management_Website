@@ -10,35 +10,50 @@ if (!isset($_SESSION['admin'])) {
 
 <!DOCTYPE html>
 <html>
-<body>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+</head>
 
-<h2>Добавить нового пользователя</h2>
+<body style="margin: 0px; padding: 0px;">
+<div class="row g-0">
 
-<form action="operations.php" method="POST">
-   <input type="hidden" name="action" value="add">
+   <div class="col-6 add-user-right-block">
+      <h1 style="color: white; font-size: 75px;">Добавить<br> нового<br> пользователя</h1>
+      <i class="bi bi-person-plus-fill"></i>
+   </div>
 
-   <label for="login">Логин:</label><br>
-   <input type="email" name="login" ><br>
+   <div class="col-6">
+      <div class="edit-div">
 
-   <label for="password">Пароль:</label><br>
-   <input type="password" id="password" name="password" ><br><br>
+         <form action="operations.php" method="POST" class="edit-form" style="border: none;">
+            <input type="hidden" name="action" value="add">
 
-   <label for="name">Имя:</label><br>
-   <input type="text" id="name" name="name" ><br><br>
+            <label for="login">Логин:</label><br>
+            <input type="email" name="login" ><br>
 
-   <label for="surname">Фамилия:</label><br>
-   <input type="text" id="surname" name="surname" ><br><br>
+            <label for="password">Пароль:</label><br>
+            <input type="password" id="password" name="password" ><br>
 
-   <label for="gender">Пол:</label><br>
-   <input type="radio" name="gender" value="0" required> Муж<br>
-   <input type="radio" name="gender" value="1"> Жен<br><br>
+            <label for="name">Имя:</label><br>
+            <input type="text" id="name" name="name" ><br>
 
-   <label for="birthdate">Дата рождения:</label><br>
-   <input type="date" id="birthdate" name="birthdate"><br><br>
+            <label for="surname">Фамилия:</label><br>
+            <input type="text" id="surname" name="surname" ><br>
 
-   <input type="submit" value="Добавить">
-</form> 
+            <label for="gender">Пол:</label><br>
+            <input type="radio" name="gender" value="0" required> Муж
+            <input type="radio" name="gender" value="1"> Жен<br><br>
 
+            <label for="birthdate">Дата рождения:</label><br>
+            <input type="date" id="birthdate" name="birthdate"><br><br>
 
+            <input type="submit" value="Добавить" class="btn btn-sm add-user-btn">
+         </form> 
+      </div>
+   </div>
+</div>
 </body>
 </html>
