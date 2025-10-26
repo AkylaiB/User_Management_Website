@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $q->bind_param("ssssisi", $login, $password, $name, $surname, $gender, $birthdate, $id);
         $q->execute();
     }elseif ($action === 'delete') {
-        $id = $_POST['id'];
+        $id = intval($_POST['id']); 
 
         $q = $conn->prepare("DELETE FROM users WHERE ID=?");
         $q->bind_param("i", $id);

@@ -31,40 +31,41 @@ if (!$user) {
 </head>
 
 <body style="margin: 0px; padding: 0px;" >
-<div class="row g-0">
-   <div class="col-6 add-user-right-block">
-      <img src="images/team-management.png" alt="Изменить пользователя" class="user-edit-image" style="height: 40%; width: 40%;">
-      <h1 style="color: white; font-size: 50px;">Изменить<br>данные<br>пользователя</h1>
-   </div>
+<div>
+   <div class="row g-0  full-height">
+      <div class="col-12 col-md-6 add-user-right-block d-flex flex-column align-items-center justify-content-center text-center">
+         <img src="images/team-management.png" alt="Изменить пользователя" class="user-edit-image" style="max-height: 50vh; width: auto;">
+         <h1 style="color: white; font-size: 50px;">Изменить<br>данные<br>пользователя</h1>
+      </div>
 
-   <div class="col-6 edit-div" >
-      <form action="operations.php" method="POST" class="edit-form">
-         <input type="hidden" name="action" value="edit">
-         <input type="hidden" name="id" value="<?= htmlspecialchars($user['ID']) ?>">
+      <div class="col-12 col-md-6 edit-div d-flex align-items-center justify-content-center" >
+         <form action="operations.php" method="POST" class="edit-form">
+            <input type="hidden" name="action" value="edit">
+            <input type="hidden" name="id" value="<?= htmlspecialchars($user['ID']) ?>">
 
-         <label for="login">Логин:</label><br>
-         <input type="email" id="login" name="login" value="<?= htmlspecialchars($user['login']) ?>" required><br>
+            <label for="login">Логин:</label><br>
+            <input type="email" id="login" name="login" value="<?= htmlspecialchars($user['login']) ?>" required><br>
 
-         <label for="password">Пароль:</label><br>
-         <input type="password" id="password" name="password" value="<?= htmlspecialchars($user['password']) ?>" required><br>
+            <label for="password">Пароль:</label><br>
+            <input type="password" id="password" name="password" value="<?= htmlspecialchars($user['password']) ?>" required><br>
 
-         <label for="name">Имя:</label><br>
-         <input type="text" id="name" name="name" value="<?= htmlspecialchars($user['name']) ?>" required><br>
+            <label for="name">Имя:</label><br>
+            <input type="text" id="name" name="name" value="<?= htmlspecialchars($user['name']) ?>" required><br>
 
-         <label for="surname">Фамилия:</label><br>
-         <input type="text" id="surname" name="surname" value="<?= htmlspecialchars($user['surname']) ?>" required><br>
+            <label for="surname">Фамилия:</label><br>
+            <input type="text" id="surname" name="surname" value="<?= htmlspecialchars($user['surname']) ?>" required><br>
 
-         <label for="gender">Пол:</label><br>
-         <input type="radio" name="gender" value="0" <?= $user['gender'] == 0 ? 'checked' : '' ?>> Муж
-         <input type="radio" name="gender" value="1" <?= $user['gender'] == 1 ? 'checked' : '' ?>> Жен<br><br>
+            <label for="gender">Пол:</label><br>
+            <input type="radio" name="gender" value="0" <?= $user['gender'] == 0 ? 'checked' : '' ?>> Муж
+            <input type="radio" name="gender" value="1" <?= $user['gender'] == 1 ? 'checked' : '' ?>> Жен<br><br>
 
-         <label for="birthdate">Дата рождения:</label><br>
-         <input type="date" id="birthdate" name="birthdate" value="<?= htmlspecialchars($user['birthdate']) ?>" required><br><br>
+            <label for="birthdate">Дата рождения:</label><br>
+            <input type="date" id="birthdate" name="birthdate" value="<?= htmlspecialchars($user['birthdate']) ?>" required><br><br>
 
-         <input type="submit" value="Сохранить" class="btn btn-sm savebtn" style="width: 120px;">
-      </form> 
+            <input type="submit" value="Сохранить" class="btn btn-sm savebtn" style="width: 120px;">
+         </form> 
+      </div>
    </div>
 </div>
-
 </body>
 </html>
