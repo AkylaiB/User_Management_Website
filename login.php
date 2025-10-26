@@ -8,7 +8,7 @@
 <body>
 
 <div class="edit-div">
-  <h2>Login</h2>
+  <h2>Вход</h2>
 
   <form action="auth_check.php" method="post" class="edit-form">
     <label for="login">Логин:</label><br>

@@ -43,44 +43,52 @@ a {
   color: #181818;
 }
 
-.add-user-btn{
-  font-size: 20px;
-  width: 120px;
-  background-color: #e60576 !important;
-  border: none !important;
-}
-
-.add-user-btn:hover {
-  font-size: 20px;
-  width: 120px;
-  background-color: #af0459 !important;
-}
-
 .edit-btn {
   width: 80px;
-  background-color: #181818 !important;
-  border: 1px solid #facd3d !important;
+  background-color: #181818;
+  border: 1px solid #facd3d;
   color: #facd3d;
 }
 
 .edit-btn:hover {
   width: 80px;
-  background-color: #facd3d !important;
+  background-color: #facd3d;
+  color: #181818;
+}
+
+.savebtn{
+  border: none !important;
+  width: 80px;
+  background-color: #e60576 !important;
+  color: #181818;
+}
+
+.savebtn:hover {
+  border: none !important;
+  width: 80px;
+  background-color: #af0459 !important;
   color: #181818;
 }
 
 
 .delete-btn {
   width: 80px;
-  background-color: #181818 !important;
-  border: 1px solid #e60576 !important;
+  background-color: #181818;
+  border: 1px solid #e60576;
   color: #e60576;
 }
 
 .delete-btn:hover {
   width: 80px;
-  background-color: #e60576 !important;
+  background-color: #e60576;
   color: white;
+}
+
+.delete-btn.special{
+  background-color: #e60576;
+}
+.delete-btn.special:hover{
+  background-color: #af0459;
 }
 
 .pagination {
@@ -111,7 +119,6 @@ a {
   text-align: center;
   background-color: #181818;
   border: 1px solid #2cccc3;
-  border-radius: 5px;
   width: 500px;
   padding: 20px;
   margin: 20px;
@@ -133,7 +140,7 @@ a {
 .current-page {
   font-size: 22px;         
   font-weight: bold;      
-  margin: 0 10px;
+  margin: 10px;
   display: inline-block;
   vertical-align: middle;
 }

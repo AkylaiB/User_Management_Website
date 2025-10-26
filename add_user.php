@@ -21,38 +21,36 @@ if (!isset($_SESSION['admin'])) {
 <div class="row g-0">
 
    <div class="col-6 add-user-right-block">
-      <h1 style="color: white; font-size: 75px;">Добавить<br> нового<br> пользователя</h1>
-      <i class="bi bi-person-plus-fill"></i>
+      <img src="images/add-user-pc.png" alt="Добавить пользователя" class="user-image" style="height: 50%; width: 50%;">
+      <h1 style="color: white; font-size: 50px;">Добавить<br> нового<br> пользователя</h1>
    </div>
 
-   <div class="col-6">
-      <div class="edit-div">
+   <div class="col-6 edit-div">
 
-         <form action="operations.php" method="POST" class="edit-form" style="border: none;">
-            <input type="hidden" name="action" value="add">
+      <form action="operations.php" method="POST" class="edit-form">
+         <input type="hidden" name="action" value="add">
 
-            <label for="login">Логин:</label><br>
-            <input type="email" name="login" ><br>
+         <label for="login">Логин:</label><br>
+         <input type="email" name="login" ><br>
 
-            <label for="password">Пароль:</label><br>
-            <input type="password" id="password" name="password" ><br>
+         <label for="password">Пароль:</label><br>
+         <input type="password" id="password" name="password" ><br>
 
-            <label for="name">Имя:</label><br>
-            <input type="text" id="name" name="name" ><br>
+         <label for="name">Имя:</label><br>
+         <input type="text" id="name" name="name" ><br>
 
-            <label for="surname">Фамилия:</label><br>
-            <input type="text" id="surname" name="surname" ><br>
+         <label for="surname">Фамилия:</label><br>
+         <input type="text" id="surname" name="surname" ><br>
 
-            <label for="gender">Пол:</label><br>
-            <input type="radio" name="gender" value="0" required> Муж
-            <input type="radio" name="gender" value="1"> Жен<br><br>
+         <label for="gender">Пол:</label><br>
+         <input type="radio" name="gender" value="0" required> Муж
+         <input type="radio" name="gender" value="1"> Жен<br><br>
 
-            <label for="birthdate">Дата рождения:</label><br>
-            <input type="date" id="birthdate" name="birthdate"><br><br>
+         <label for="birthdate">Дата рождения:</label><br>
+         <input type="date" id="birthdate" name="birthdate"><br><br>
 
-            <input type="submit" value="Добавить" class="btn btn-sm add-user-btn">
-         </form> 
-      </div>
+         <input type="submit" value="Добавить" class="btn btn-sm savebtn" style="width: 120px;">
+      </form> 
    </div>
 </div>
 </body>

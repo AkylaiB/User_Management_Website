@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Oct 24, 2025 at 08:46 PM
+-- Generation Time: Oct 26, 2025 at 08:53 AM
 -- Server version: 8.0.31
 -- PHP Version: 8.0.26
 
@@ -66,7 +66,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`ID`, `login`, `password`, `name`, `surname`, `gender`, `birthdate`) VALUES
-(1, 'efim@gmail.com', '123', 'Эфим', 'Гонохов', 0, '2005-12-20'),
+(1, 'efimg@gmail.com', '12311', 'Эфимм', 'Гоноховв', 0, '2005-10-20'),
 (2, 'alla@gmail.com', '111', 'Алла', 'Чуликова', 1, '2000-01-23'),
 (3, 'valeri@gmail.com', '145', 'Валерий', 'Шелестов', 0, '2001-03-12'),
 (4, 'elvira@gmail.com', '486', 'Эльвира', 'Шафиева', 1, '2004-04-25'),
